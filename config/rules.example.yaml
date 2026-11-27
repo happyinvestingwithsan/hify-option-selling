@@ -1,0 +1,49 @@
+# HIFY Option Selling System - Rule Configuration
+# Copy to rules.yaml and customize to your capital tier & preferences.
+
+capital:
+  total_capital_inr: 2500000          # e.g., 25L
+  tier: "25L"                         # Options: "12L", "25L", "1CR", "2.5CR"
+  max_naked_positions: 4              # 12L=2, 25L=4, 1CR=16
+  max_hedged_positions: 6             # 25L=6
+  cut_exposure_at_nifty_ath_pct: 50   # Reduce max positions by 50% at market ATH
+
+stock_selection:
+  universe: "NSE_FNO"                 # Supported: F40, E40, NSE_FNO (strictly no S200)
+  min_institutional_holding_pct: 70   # FII + DII + Promoter >= 70%
+  require_below_median_pe: true
+  exclude_psu_unless_hedged: true
+  beaten_down_from_ath_pct:
+    large_cap_min: 25                 # 20% for rare defensives like Dabur/HUL
+    mid_cap_min: 30
+    small_cap_min: 35
+
+entry_triggers:
+  require_red_candle: true            # Only sell Puts on red-candle / panic days
+  min_intraday_drop_pct: 2.0          # Alert trigger threshold for "drastic fall"
+  require_lower_blue_line_zone: true
+  order_type: "LIMIT"                 # Strict: never MARKET
+  max_option_bid_ask_spread_pct: 5.0  # 5% liquidity rule
+  max_future_bid_ask_spread_pct: 1.5
+
+ppm_tiers:
+  aggressive_min_pct: 6.0
+  normal_min_pct: 3.0
+  conservative_max_pct: 3.0
+
+profit_booking_decay_pct:
+  intraday_1_day: 30.0
+  fast_2_to_3_days: 45.0
+  mid_month_gtt: 50.0
+  expiry_week_min: 70.0
+  expiry_week_max: 80.0
+
+rollover:
+  allow_roll_down_strike: false       # NEVER roll down; keep exact same strike
+  pivot_to_far_future_if_illiquid: true
+  physical_delivery_cutoff_days: 2    # Roll/close >= 2 days before Last Thursday
+
+hedging:
+  bull_put_spread_otm_distance_pct: 10.0
+  portfolio_nifty_hedge_annual_budget_pct: 2.0
+  shift_nifty_hedge_on_crash_pct: 8.0

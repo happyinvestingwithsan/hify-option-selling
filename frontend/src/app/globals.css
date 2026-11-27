@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* Typography */
+  --font-inter: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-jetbrains-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Brand (HIFY Gold) */
+  --hify-gold: #C8A951;
+  --hify-gold-hover: #B6933A;
+  --hify-gold-deep: #8E6C20;
+  --hify-gold-light: #EFE3C3;
+  --hify-gold-milestone: #F5EFE1;
+
+  /* Light Mode Surfaces & Text */
+  --hify-bg: #FAFAF8;
+  --hify-surface: #FFFFFF;
+  --hify-surface-raised: #FFFFFF;
+  --hify-text: #18181B;
+  --hify-text-secondary: #71717A;
+  --hify-border: #E4E4E7;
+
+  /* Semantic & Charts */
+  --hify-success: #10B981;
+  --hify-error: #F43F5E;
+  --hify-warning: #EA580C;
+  --hify-benchmark: #94A3B8;
+  --hify-comparison-a: #6366F1;
+  --hify-comparison-b: #06B6D4;
+  --hify-inactive: #475569;
+}
+
+.dark {
+  /* Dark Mode Surfaces & Text */
+  --hify-bg: #121214;
+  --hify-surface: #18181B;
+  --hify-surface-raised: #27272A;
+  --hify-text: #EDEDED;
+  --hify-text-secondary: #A1A1AA;
+  --hify-border: #2E2E33;
+}
+
+@layer base {
+  html {
+    background-color: var(--hify-bg);
+    color: var(--hify-text);
+  }
+
+  body {
+    background-color: var(--hify-bg);
+    color: var(--hify-text);
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.font-mono-num {
+  font-family: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-variant-numeric: tabular-nums;
+}
