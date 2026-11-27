@@ -5,6 +5,28 @@
 
 ---
 
+## Session: 2026-11-27 22:20 IST — Polyrepo GitHub Setup, HIFY-Hub & Tailscale Silent Mode
+
+### Completed Today
+1. **Polyrepo Git Isolation & Zero-Blast-Radius Guardrails:**
+   - Added **Git Polyrepo Isolation & Tailscale One-Link Contract** to [Trading Log/GEMINI.md](file:///D:/AI%20Projects/Trading%20Log/GEMINI.md) and [OptionSelling/GEMINI.md](file:///D:/AI%20Projects/Trading%20Log/OptionSelling/GEMINI.md).
+   - Created [git-safe-commit/SKILL.md](file:///D:/AI%20Projects/Trading%20Log/OptionSelling/.agents/skills/git-safe-commit/SKILL.md) and updated [.gitignore](file:///D:/AI%20Projects/Trading%20Log/OptionSelling/.gitignore) (`logs/`, `Console_Reports/`, `Reports/`, `*.xlsx`, `*.csv`).
+   - Initialized Git and pushed private repo `happyinvestingwithsan/hify-option-selling` (`675735d`).
+2. **Tailscale Mobile Access & Unified Launcher:**
+   - Fixed `getApiBaseUrl()` in [api.ts](file:///D:/AI%20Projects/Trading%20Log/OptionSelling/frontend/src/lib/api.ts) (`339cbd6`) to preserve `https:`/`http:` protocol.
+   - Added Tailscale MagicDNS `allowedDevOrigins` in [next.config.ts](file:///D:/AI%20Projects/Trading%20Log/OptionSelling/frontend/next.config.ts) and `*.ts.net` CORS regex in [main.py](file:///D:/AI%20Projects/Trading%20Log/OptionSelling/backend/app/main.py) (`00bb15b`).
+   - Built standalone [HIFY-Hub](file:///D:/AI%20Projects/Trading%20Log/HIFY-Hub/server.mjs) (`happyinvestingwithsan/hify-trading-hub`, `03796e6`) + [HIFY_Trading.code-workspace](file:///D:/AI%20Projects/Trading%20Log/HIFY_Trading.code-workspace), [sync-all.ps1](file:///D:/AI%20Projects/Trading%20Log/sync-all.ps1), [.vscode/tasks.json](file:///D:/AI%20Projects/Trading%20Log/.vscode/tasks.json), [start-background.ps1](file:///D:/AI%20Projects/Trading%20Log/start-background.ps1), and [stop-all.ps1](file:///D:/AI%20Projects/Trading%20Log/stop-all.ps1).
+
+### Verified Health (2026-11-27 22:20 IST)
+- **OptionSelling Frontend (`npx tsc --noEmit`):** 0 errors; Backend (`create_app()`): `BACKEND_OK`.
+- **Tailscale Silent Mode (`start-background.ps1`):** `http://laptop-9hp2cc0d.tailb8bfc0.ts.net:3099/api/health` returned `{"optionsUi":true,"optionsApi":true,"usStocks":true,"swingIndia":false}`.
+
+### Next Session Queue
+- Test OptionSelling UI on S24 FE (`http://laptop-9hp2cc0d.tailb8bfc0.ts.net:3011` via HIFY-Hub `:3099`) now that `00bb15b` is live.
+- Continue strategy/UI improvements as needed; run `sync-all.ps1` at end of session to commit/push only modified repos.
+
+---
+
 ## Session: 2026-11-27 19:58 IST — Unit U20: Back Office Physical-Delivery Equity Exit Accountability
 
 ### Completed Today
